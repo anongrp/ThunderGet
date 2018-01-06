@@ -1,0 +1,48 @@
+#home_tab_pane{
+    -fx-tab-max-height: 10em;
+    -fx-tab-min-height: 10em;
+    -fx-tab-min-width: 6em;
+    -fx-tab-max-width: 6em;
+}
+.tab .tab-label{
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+    -fx-text-fill: white;
+}
+.tab{
+    -fx-background-color: #1565C0;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0;
+    -fx-padding: 0 10 0 10;
+}
+.tab:selected{
+    -fx-background-color: #1A237E;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-width: 5 0 0 0;
+    -fx-border-color: #00D7FF;
+}
+.tab:hover{
+    -fx-background-color: #1A237E;
+}
+.tab:focused{
+    -fx-background-color: transparent;
+}
+.tab-pane *.tab-header-background{
+    -fx-background-color:  transparent;
+}
+.tab-pane:left *.tab-header-area{
+    -fx-padding: 0em;
+}
+
+.tab:selected .focus-indicator{
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+#header_logo{
+    -fx-background-color: #1565C0;
+}
+#header{
+	-fx-background-color:#e7e7e7;
+}

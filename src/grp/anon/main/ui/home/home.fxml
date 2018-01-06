@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="900.0" stylesheets="@../../../../../Resources/style/main.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane fx:id="border_pane">
+         <top>
+            <HBox fx:id="header" prefHeight="71.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane fx:id="header_logo" prefHeight="71.0" prefWidth="125.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="8.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thunder">
+                           <font>
+                              <Font name="System Italic" size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#08b1ff" layoutX="83.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </children></HBox>
+         </top>
+         <center>
+            <TabPane fx:id="home_tab_pane" prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab>
+                     <content>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" />
+                           </children>
+                        </StackPane>
+                     </content>
+                </Tab>
+                <Tab>
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Separator layoutX="-127.0" layoutY="-6.0" prefHeight="19.0" prefWidth="2174.0" />
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab>
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Separator layoutX="-127.0" layoutY="-7.0" prefHeight="19.0" prefWidth="2174.0" />
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab>
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Separator layoutX="-127.0" layoutY="-7.0" prefHeight="19.0" prefWidth="2174.0" />
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab>
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="774.0">
+                           <children>
+                              <Separator layoutX="-128.0" layoutY="-8.0" prefHeight="19.0" prefWidth="2175.0" />
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </center>
+         <bottom>
+            <HBox fx:id="status_bar" prefHeight="27.0" prefWidth="900.0" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </children>
+</StackPane>
