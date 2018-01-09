@@ -1,48 +1,56 @@
-#home_tab_pane{
-    -fx-tab-max-height: 10em;
-    -fx-tab-min-height: 10em;
-    -fx-tab-min-width: 6em;
-    -fx-tab-max-width: 6em;
+.root{
+    /*-fx-background-color: linear-gradient(to right, #97e5ff, #8cd3ec)*/
+    -fx-background-image: url("../../Resources/images/bg_blur2.jpg");
+
 }
-.tab .tab-label{
+#search_pane{
+    -fx-background-color: #efefef;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian,black,10,0,0,10);
+}
+#main_logo_pane{
     -fx-background-color: transparent;
-    -fx-alignment: center;
-    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian,black,10,0,0,10);
 }
-.tab{
-    -fx-background-color: #1565C0;
-    -fx-background-insets: 0.0;
-    -fx-background-radius: 0;
-    -fx-padding: 0 10 0 10;
+.white{
+    -fx-background-color: #e7e7e7;
 }
-.tab:selected{
-    -fx-background-color: #1A237E;
-    -fx-background-radius: 0;
-    -fx-background-insets: 0;
-    -fx-border-width: 5 0 0 0;
-    -fx-border-color: #00D7FF;
-}
-.tab:hover{
-    -fx-background-color: #1A237E;
-}
-.tab:focused{
-    -fx-background-color: transparent;
-}
-.tab-pane *.tab-header-background{
-    -fx-background-color:  transparent;
-}
-.tab-pane:left *.tab-header-area{
-    -fx-padding: 0em;
+.mirror{
+    -fx-background-color: rgba(231, 231, 231, 0.51);
 }
 
-.tab:selected .focus-indicator{
-    -fx-border-color: transparent;
-    -fx-background-color: transparent;
+.dropshadow{
+    -fx-effect: dropshadow(gaussian,black,10,0.3,0,5);
 }
-
-#header_logo{
-    -fx-background-color: #1565C0;
+.round{
+    -fx-background-radius: 10px;
 }
-#header{
-	-fx-background-color:#e7e7e7;
+.hoverEffect:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-cursor: hand;
+    -fx-opacity: 1;
+    -fx-rotate: 2;
+}
+.hoverEffect:pressed{
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-rotate: 0;
+}
+#download_progress{
+    -fx-progress-color: #2ab1ff;
+    -fx-background-color: rgba(231, 231, 231, 0.5);
+}
+.button{
+    -fx-background-color: rgba(231, 231, 231, 0.5);
+    -fx-text-fill: black;
+}
+.red-shadow{
+    -fx-effect: dropshadow(gaussian, rgba(255, 0, 0, 0.72),10,0.3,0,5);
+}
+.red-text{
+    -fx-text-fill: red;
+}
+#download_status_text{
+    -fx-background-color: rgba(231, 231, 231, 0.5);
 }

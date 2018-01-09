@@ -8,5 +8,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jsoup-1.11.2" level="project" />
+    <orderEntry type="library" name="gson-2.8.2" level="project" />
+    <orderEntry type="library" name="jfoenix-9.0.0" level="project" />
+    <orderEntry type="library" name="controlsfx-9.0.0" level="project" />
   </component>
 </module>

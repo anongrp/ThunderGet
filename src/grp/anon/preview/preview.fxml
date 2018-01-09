@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="450.0" prefWidth="700.0" stylesheets="@../../../Resources/style/main.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grp.anon.preview.PreviewController">
+   <children>
+      <Pane layoutX="180.0" layoutY="14.0" opacity="0.76" prefHeight="46.0" prefWidth="339.0">
+         <styleClass>
+            <String fx:value="white" />
+            <String fx:value="round" />
+            <String fx:value="dropshadow" />
+         </styleClass>
+         <children>
+            <Text fontSmoothingType="LCD" layoutX="5.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preview" textAlignment="CENTER" wrappingWidth="326.40001118183136">
+               <font>
+                  <Font name="Cambria" size="27.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <GridPane fx:id="preview_pane" layoutX="36.0" layoutY="91.0" prefHeight="306.0" prefWidth="642.0" style="-fx-hgap: 20; -fx-vgap: 30;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="289.20001220703125" minWidth="10.0" prefWidth="279.5999755859375" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.4000244140625" minWidth="10.0" prefWidth="292.4000244140625" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.4000244140625" minWidth="10.0" prefWidth="292.4000244140625" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="137.59999389648436" minHeight="10.0" prefHeight="135.2" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="152.79999999999998" minHeight="10.0" prefHeight="140.79999999999998" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Pane opacity="0.5" prefHeight="200.0" prefWidth="200.0">
+               <styleClass>
+                  <String fx:value="white" />
+                  <String fx:value="dropshadow" />
+                  <String fx:value="round" />
+                  <String fx:value="hoverEffect" />
+               </styleClass>
+               <children>
+                  <ImageView fitHeight="118.0" fitWidth="188.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="preview_box">
+                     <image>
+                        <Image url="@../../../../../../download%20Images/cat-1285634_960_720.png" />
+                     </image></ImageView>
+               </children>
+            </Pane>
+            <Pane opacity="0.5" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <styleClass>
+                  <String fx:value="white" />
+                  <String fx:value="dropshadow" />
+                  <String fx:value="round" />
+                  <String fx:value="hoverEffect" />
+               </styleClass>
+               <children>
+                  <ImageView fitHeight="118.0" fitWidth="188.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" styleClass="preview_box">
+                     <image>
+                        <Image url="@../../../../../../download%20Images/cat-1285634_960_720.png" />
+                     </image></ImageView>
+               </children>
+            </Pane>
+            <Pane opacity="0.5" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+               <styleClass>
+                  <String fx:value="white" />
+                  <String fx:value="dropshadow" />
+                  <String fx:value="round" />
+                  <String fx:value="hoverEffect" />
+               </styleClass>
+               <children>
+                  <ImageView fitHeight="131.0" fitWidth="200.0" layoutX="1.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="preview_box">
+                     <image>
+                        <Image url="@../../../../../../download%20Images/cat-1285634_960_720.png" />
+                     </image></ImageView>
+               </children>
+            </Pane>
+            <Pane opacity="0.5" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <styleClass>
+                  <String fx:value="white" />
+                  <String fx:value="dropshadow" />
+                  <String fx:value="round" />
+                  <String fx:value="hoverEffect" />
+               </styleClass>
+               <children>
+                  <ImageView fitHeight="145.0" fitWidth="181.0" layoutX="4.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="preview_box">
+                     <image>
+                        <Image url="@../../../../../../download%20Images/cat-1285634_960_720.png" />
+                     </image></ImageView>
+               </children>
+            </Pane>
+            <Pane opacity="0.5" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <styleClass>
+                  <String fx:value="white" />
+                  <String fx:value="dropshadow" />
+                  <String fx:value="round" />
+                  <String fx:value="hoverEffect" />
+               </styleClass>
+               <children>
+                  <ImageView fitHeight="131.0" fitWidth="200.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" styleClass="preview_box">
+                     <image>
+                        <Image url="@../../../../../../download%20Images/cat-1285634_960_720.png" />
+                     </image></ImageView>
+               </children>
+            </Pane>
+            <Pane opacity="0.5" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <styleClass>
+                  <String fx:value="white" />
+                  <String fx:value="dropshadow" />
+                  <String fx:value="round" />
+                  <String fx:value="hoverEffect" />
+               </styleClass>
+               <children>
+                  <ImageView fitHeight="145.0" fitWidth="200.0" layoutX="1.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" styleClass="preview_box">
+                     <image>
+                        <Image url="@../../../../../../download%20Images/cat-1285634_960_720.png" />
+                     </image></ImageView>
+               </children>
+            </Pane>
+         </children>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </GridPane>
+      <JFXButton fx:id="prNextBtn" layoutX="645.0" layoutY="411.0" text="Next" textFill="WHITE" />
+      <JFXButton fx:id="moreBtn" layoutX="327.0" layoutY="411.0" text="More" textFill="WHITE" />
+      <JFXButton fx:id="homeBtn" layoutX="14.0" layoutY="411.0" text="Home" textFill="WHITE" />
+   </children>
+</AnchorPane>
