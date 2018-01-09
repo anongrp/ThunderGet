@@ -6,7 +6,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
+import java.io.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PreviewController implements Initializable {
@@ -31,8 +33,20 @@ public class PreviewController implements Initializable {
     @FXML
     private ImageView pb5;
 
+    @FXML
+    private ImageView pb6;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        ArrayList<String> links = new ArrayList<String>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(new File("C:\\Users\\"+System.getProperty("user.name")+"\\AppData\\Local\\ThunderGet\\Links.dat")));
+            String link;
+            while ((link = reader.readLine()) != null){
+                links.add(link.substring(link.indexOf('"')+1,link.indexOf('"',6)));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

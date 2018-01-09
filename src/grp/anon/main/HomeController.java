@@ -74,32 +74,35 @@ public class HomeController implements Initializable {
 
         search_input.addEventHandler(KeyEvent.KEY_PRESSED,e->{
             if (e.getCode().equals(KeyCode.ENTER)){
-                System.out.println(search_input.getText());
                 finalLink = startLink+search_input.getText()+endLink;
                 new Thread(() -> {
                     try {
-                        getGoogleImagesLinks(finalLink,new File("C:\\Users\\Anikesh\\Desktop\\Links.dat"));
+                        getGoogleImagesLinks(finalLink,new File("C:\\Users\\"+System.getProperty("user.name")+"\\AppData\\Local\\ThunderGet\\Links.dat"));
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
                 }).start();
 
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(1500);
                 } catch (InterruptedException e1) {
                     e1.printStackTrace();
                 }
 
-                try {
-                    BufferedReader reader = new BufferedReader(new FileReader(new File("C:\\Users\\Anikesh\\Desktop\\Links.dat")));
-                    String link;
-                    while ((link = reader.readLine()) != null){
-                        link = link.substring(link.indexOf('"')+1,link.indexOf('"',5));
-                        download(link);
-                    }
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
+                new Thread(() -> {
+                    Stage curStage = (Stage) root_pane.getScene().getWindow();
+                    FadeTransition transition = new FadeTransition(Duration.seconds(2),root_pane);
+                    transition.setFromValue(1);
+                    transition.setToValue(0);
+                    transition.setOnFinished((lambda) ->{
+                        try {
+                            curStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../preview/preview.fxml"))));
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                    });
+                    transition.play();
+                }).start();
             }
         });
     }
@@ -111,8 +114,8 @@ public class HomeController implements Initializable {
     private void getGoogleImagesLinks(String url, File outPutFilePath) throws IOException {
         String rowLink;
         FileWriter writer = new FileWriter(outPutFilePath);
-        FileWriter rowDataWriter = new FileWriter(new File("temp.dat"));
-        BufferedReader reader = new BufferedReader(new FileReader(new File("temp.dat")));
+        FileWriter rowDataWriter = new FileWriter(new File("C:\\Users\\"+System.getProperty("user.name")+"\\AppData\\Local\\ThunderGet\\temp.dat"));
+        BufferedReader reader = new BufferedReader(new FileReader(new File("C:\\Users\\"+System.getProperty("user.name")+"\\AppData\\Local\\ThunderGet\\temp.dat")));
         Document document = Jsoup.connect(url).get();
         Elements divTags = document.getElementsByTag("div");
         rowDataWriter.write(divTags.toString());

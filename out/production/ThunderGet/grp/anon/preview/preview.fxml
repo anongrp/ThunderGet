@@ -40,7 +40,7 @@
           <RowConstraints maxHeight="152.79999999999998" minHeight="10.0" prefHeight="140.79999999999998" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Pane fx:id="testIT" opacity="0.5" prefHeight="200.0" prefWidth="200.0">
+            <Pane opacity="0.5" prefHeight="200.0" prefWidth="200.0">
                <styleClass>
                   <String fx:value="white" />
                   <String fx:value="dropshadow" />

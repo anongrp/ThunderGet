@@ -66,10 +66,5 @@ public class DownloadStatusController implements Initializable {
         transition.setToValue(1);
         transition.play();
 
-        String[] data = new String[50];
-        for (int i=0;i<data.length;i++){
-            data[i] = "data"+i;
-            download_status_text.appendText(data[i]+"\n");
-        }
     }
 }

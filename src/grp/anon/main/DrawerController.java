@@ -55,6 +55,7 @@ public class DrawerController {
 
     @FXML
     void goSettings(ActionEvent event) {
+
         mainRoot = Home.getRoot();
         Stage curStage = (Stage) mainRoot.getScene().getWindow();
         FadeTransition transition = new FadeTransition(Duration.seconds(2),mainRoot);

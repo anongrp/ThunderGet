@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="root_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" styleClass="root_pane" stylesheets="@../../../Resources/style/main.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grp.anon.main.HomeController">
+   <children>
+      <AnchorPane prefHeight="450.0" prefWidth="700.0" styleClass="root" stylesheets="@../../../Resources/style/main.css">
+         <children>
+            <Pane fx:id="search_pane" layoutX="157.0" layoutY="261.0" prefHeight="66.0" prefWidth="386.0">
+               <children>
+                  <JFXTextField fx:id="search_input" alignment="CENTER" focusColor="#00b7ff" layoutX="14.0" layoutY="14.0" prefHeight="38.0" prefWidth="359.0" promptText="  Search Image">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                     <effect>
+                        <Glow level="0.28" />
+                     </effect></JFXTextField>
+               </children>
+            </Pane>
+            <Pane fx:id="main_logo_pane" layoutX="157.0" layoutY="69.0" prefHeight="182.0" prefWidth="386.0">
+               <children>
+                  <ImageView fx:id="home_logo" fitHeight="117.0" fitWidth="267.0" layoutX="60.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Resources/images/ThunderGet small.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <JFXHamburger fx:id="home_ham" layoutX="656.0" layoutY="20.0" />
+            <JFXDrawer fx:id="home_drawer" defaultDrawerSize="210.0" prefHeight="450.0" prefWidth="153.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

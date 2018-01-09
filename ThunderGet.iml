@@ -11,5 +11,6 @@
     <orderEntry type="library" name="gson-2.8.2" level="project" />
     <orderEntry type="library" name="jfoenix-9.0.0" level="project" />
     <orderEntry type="library" name="controlsfx-9.0.0" level="project" />
+    <orderEntry type="library" name="AN Database v2.1" level="project" />
   </component>
 </module>
