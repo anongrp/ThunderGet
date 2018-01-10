@@ -115,8 +115,8 @@ public class DownloadStatusController implements Initializable {
                 protected Void call() throws Exception {
                     Integer index=0;
                     while (index<quantity){
-                        DownloadStatusController.download(links.get(index),downloadPath.getAbsolutePath());
                         updateProgress(index,quantity-1);
+                        DownloadStatusController.download(links.get(index),downloadPath.getAbsolutePath());
                         download_status_text.appendText(getImageName(links.get(index)+"\t\t  -- Downloaded \n"));
                         index++;
                     }

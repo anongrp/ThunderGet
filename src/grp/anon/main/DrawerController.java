@@ -86,7 +86,7 @@ public class DrawerController implements Initializable {
 
     @FXML
     void quit(ActionEvent event) {
-        System.exit(0);
+        System.exit(1);
     }
 
 }
