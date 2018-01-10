@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -74,6 +75,7 @@ public class Home extends Application {
         mainStage.setScene(new Scene(root));
         mainStage.setTitle("ThunderGet");
         mainStage.setResizable(false);
+        //primaryStage.getIcons().add(new Image("../../../Resources/images/icon.png"));
         mainStage.show();
     }
 

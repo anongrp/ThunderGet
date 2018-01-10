@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="234.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grp.anon.main.DrawerController">
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="234.0" stylesheets="@../../../Resources/style/main.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grp.anon.main.DrawerController">
    <children>
       <ImageView fitHeight="156.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,12 +20,26 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <JFXButton accessibleText="HOME" layoutX="-4.0" layoutY="1.0" prefHeight="94.0" prefWidth="123.0" text="Home" />
+                        <JFXButton accessibleText="HOME" layoutX="-4.0" layoutY="1.0" prefHeight="94.0" prefWidth="123.0" styleClass="sliderHover" text="Home">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Resources/images/icons/home.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></JFXButton>
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <JFXButton accessibleText="CATEGORY" layoutY="1.0" onAction="#goCategory" prefHeight="92.8" prefWidth="116.0" text="Category" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <JFXButton accessibleText="CATEGORY" layoutY="1.0" onAction="#goCategory" prefHeight="92.8" prefWidth="116.0" styleClass="sliderHover" text="Category" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <graphic>
+                              <ImageView fitHeight="31.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Resources/images/icons/icons8-category-50.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></JFXButton>
                      </children>
                   </AnchorPane>
               </items>
@@ -37,12 +51,26 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <JFXButton accessibleText="DOWNLOADS" layoutY="2.0" onAction="#goDownloads" prefHeight="96.8" prefWidth="114.4" text="Downloads" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <JFXButton accessibleText="DOWNLOADS" layoutY="2.0" onAction="#goDownloads" prefHeight="96.8" prefWidth="114.4" styleClass="sliderHover" text="Downloads" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <graphic>
+                              <ImageView fitHeight="33.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Resources/images/icons/download-to-storage-drive.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></JFXButton>
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <JFXButton accessibleText="FEEDBACK" layoutY="2.0" onAction="#goSettings" prefHeight="96.8" prefWidth="112.8" text="Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <JFXButton accessibleText="FEEDBACK" layoutY="2.0" onAction="#goSettings" prefHeight="97.0" prefWidth="114.0" styleClass="sliderHover" text="Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Resources/images/icons/settings.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></JFXButton>
                      </children>
                   </AnchorPane>
               </items>
@@ -54,12 +82,26 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="102.0" prefWidth="72.0">
                      <children>
-                        <JFXButton accessibleText="ABOUT" layoutX="30.0" layoutY="51.0" onAction="#goAbout" prefHeight="101.6" prefWidth="112.0" text="About" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <JFXButton accessibleText="ABOUT" layoutX="30.0" layoutY="51.0" onAction="#goAbout" prefHeight="101.6" prefWidth="112.0" styleClass="sliderHover" text="About" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <graphic>
+                              <ImageView fitHeight="32.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Resources/images/icons/icons8-about-50.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></JFXButton>
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="102.0" prefWidth="123.0">
                      <children>
-                        <JFXButton accessibleText="EXIT" layoutX="39.0" layoutY="51.0" onAction="#quit" prefHeight="101.6" prefWidth="114.4" text="Exit" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <JFXButton accessibleText="EXIT" layoutX="39.0" layoutY="51.0" onAction="#quit" prefHeight="101.6" prefWidth="114.4" styleClass="sliderHover" text="Exit" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <graphic>
+                              <ImageView fitHeight="32.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Resources/images/icons/ic_exit_to_app_48pt_3x.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></JFXButton>
                      </children>
                   </AnchorPane>
               </items>
