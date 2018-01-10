@@ -3,6 +3,8 @@ package grp.anon.status;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import grp.anon.main.Home;
+import grp.anon.main.HomeController;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -11,10 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.AnchorPane;
-import java.io.BufferedInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -27,41 +27,35 @@ public class DownloadStatusController implements Initializable {
     private ProgressIndicator download_progress;
 
     @FXML
-    private JFXButton homeBtn;
-
-    @FXML
-    private JFXButton cancelBtn;
-
-    @FXML
     private JFXTextArea download_status_text;
 
     @FXML
     private JFXTextField imageQuantity;
 
-    @FXML
-    private JFXButton startBtn;
 
     private static ArrayList<String> links;
-    //private Integer quantity;
+    private Integer quantity;
+    private Download downloadService;
+    private File downloadPath;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        downloadService = new Download();
+        download_progress.progressProperty().bind(downloadService.progressProperty());
+        downloadService.setOnSucceeded(e->{
+            System.out.println("Done");
+        });
     }
 
 
     @FXML
     void startDownloading(ActionEvent event) {
-        /*for (String i:links){
-            System.out.println(i);
-        }*/
-        Integer quantity = null,index=0;
         if (!imageQuantity.getText().equals("")){
             try {
                 quantity = Integer.parseInt(imageQuantity.getText());
-                while (index < quantity){
-                    download(links.get(index));
-                    index++;
-                }
+                downloadPath = new File(Home.download_dir.getAbsolutePath()+"\\"+HomeController.userKeyWord);
+                /*if (!downloadPath.exists())
+                    downloadPath.mkdir();*/
+                downloadService.start();
             }catch (Exception e){
                 showAert("Please Enter Integer Value ");
             }
@@ -70,21 +64,22 @@ public class DownloadStatusController implements Initializable {
 
     @FXML
     void cancelDownloading(ActionEvent event) {
-
+        downloadService.cancel();
+        download_progress.setProgress(0);
+        download_status_text.appendText("Download Canceled ");
     }
 
-    private static void download(String imgUrl) throws IOException {
+    private static void download(String imgUrl, String downloadDir) throws IOException {
         URL url = new URL(imgUrl);
         InputStream in = new BufferedInputStream(url.openStream());
         try {
-            FileOutputStream fos = new FileOutputStream("C:\\Users\\Anikesh\\Desktop\\"+getImageName(imgUrl));
+            FileOutputStream fos = new FileOutputStream(downloadDir+getImageName(imgUrl));
             byte[] buf = new byte[1024];
             int n = 0;
             while (-1!=(n=in.read(buf)))
             {
                 fos.write(buf,0,n);
             }
-            System.out.println(getImageName(imgUrl)+" Succesfully Downloaded" );
             fos.close();
         }catch (Exception e){
             System.out.println("Exception Occure");
@@ -105,7 +100,7 @@ public class DownloadStatusController implements Initializable {
         links = getedLink;
     }
 
-    public void showAert(String msg){
+    private void showAert(String msg){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("ThunderGet Information");
         alert.setHeaderText(msg);
@@ -118,8 +113,13 @@ public class DownloadStatusController implements Initializable {
             return new Task<Void>() {
                 @Override
                 protected Void call() throws Exception {
-
-
+                    Integer index=0;
+                    while (index<quantity){
+                        DownloadStatusController.download(links.get(index),downloadPath.getAbsolutePath());
+                        updateProgress(index,quantity-1);
+                        download_status_text.appendText(getImageName(links.get(index)+"\t\t  -- Downloaded \n"));
+                        index++;
+                    }
                     return null;
                 }
             };

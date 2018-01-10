@@ -13,7 +13,7 @@
 <AnchorPane fx:id="root" prefHeight="450.0" prefWidth="700.0" styleClass="root" stylesheets="@../../../Resources/style/main.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grp.anon.status.DownloadStatusController">
    <children>
       <Accordion layoutX="148.0" layoutY="329.0" />
-      <ProgressIndicator fx:id="download_progress" layoutX="233.0" layoutY="276.0" prefHeight="160.0" prefWidth="234.0" progress="0.86">
+      <ProgressIndicator fx:id="download_progress" layoutX="233.0" layoutY="276.0" prefHeight="160.0" prefWidth="234.0" progress="0.0">
          <styleClass>
             <String fx:value="round" />
             <String fx:value="dropshadow" />

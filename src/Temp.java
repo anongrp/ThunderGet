@@ -1,3 +1,4 @@
+/*
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -31,3 +32,4 @@ class Temp{
         return data.substring(data.lastIndexOf("/")+1,data.length());
     }
 }
+*/
