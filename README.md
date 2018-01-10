@@ -1,4 +1,4 @@
-# ThunderGet
+# <center>ThunderGet</center>
 `Now, Download Images Easily`   
 
 # Home Page : 
