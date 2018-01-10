@@ -5,7 +5,8 @@
 * Automatic Image Download  
 * Based On Anon Design Macindos UI (Theme)
 * Smart Icon Searching  
-* Automatic Write Wrong Spelling To Right With Auto Text Correction
+* Automatic Write Wrong Spelling To Right With Auto Text Correction  
+* Store Your History And Data Securely With AnDatabase  
 
 # Home Page : 
 ![Home](https://github.com/anongrp/ThunderGet/blob/master/Screenshot/Untitled-1.png)    
