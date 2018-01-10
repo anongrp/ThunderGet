@@ -1,6 +1,12 @@
 # ThunderGet
 `Now, Download Images Easily`   
 
+# Features :  
+* Automatic Image Download  
+* Based On Anon Design Macindos UI (Theme)
+* Smart Icon Searching  
+* Automatic Write Wrong Spelling To Right With Auto Text Correction
+
 # Home Page : 
 ![Home](https://github.com/anongrp/ThunderGet/blob/master/Screenshot/Untitled-1.png)    
 
