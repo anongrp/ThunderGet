@@ -51,9 +51,11 @@ public class HomeController implements Initializable {
     private String startLink = "https://www.google.co.in/search?q=";
     private String endLink = "&dcr=0&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjo3q-En8jYAhXBtY8KHZpfA44Q_AUICygC&biw=1536&bih=759&dpr=1.25";
     private String finalLink;
+    public static String userKeyWord;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         linkService = new GetLinkService();
+        previewStage.setResizable(false);
 
         /* Coding For Main Drawer */
         try {
@@ -79,8 +81,9 @@ public class HomeController implements Initializable {
             if (e.getCode().equals(KeyCode.ENTER)){
                 progressPane.setOpacity(1);
                 finalLink = startLink+search_input.getText()+endLink;
+                userKeyWord = search_input.getText();
                 linkService.restart();
-                linkService.setOnSucceeded(action ->{
+                linkService.setOnSucceeded(afterSuccess ->{
                     try {
                         progressPane.setOpacity(0);
                         previewStage.setScene(new Scene((AnchorPane)FXMLLoader.load(getClass().getResource("../preview/preview.fxml"))));
@@ -89,6 +92,13 @@ public class HomeController implements Initializable {
                     } catch (IOException ex) {
                         showError();
                     }
+                });
+                linkService.setOnFailed(afterFailed->{
+                    progressPane.setOpacity(0);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("No Image Found");
+                    alert.setHeaderText("Please Change Your Keyword or Remove png to Your Keyword");
+                    alert.show();
                 });
             }
         });
@@ -118,29 +128,6 @@ public class HomeController implements Initializable {
 
         writer.close();
         reader.close();
-    }
-
-    private static void download(String imgUrl) throws IOException {
-        URL url = new URL(imgUrl);
-        InputStream in = new BufferedInputStream(url.openStream());
-        try {
-            FileOutputStream fos = new FileOutputStream("C:\\Users\\Anikesh\\Desktop\\"+getImageName(imgUrl));
-            byte[] buf = new byte[1024];
-            int n = 0;
-            while (-1!=(n=in.read(buf)))
-            {
-                fos.write(buf,0,n);
-            }
-            System.out.println(getImageName(imgUrl)+" Succesfully Downloaded" );
-            fos.close();
-        }catch (Exception e){
-            System.out.println("Exception Occure");
-        }
-        in.close();
-    }
-
-    private static String getImageName(String data){
-        return data.substring(data.lastIndexOf("/")+1,data.length());
     }
 
     private void showError(){

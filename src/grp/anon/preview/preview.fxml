@@ -130,7 +130,7 @@
             <Insets right="10.0" />
          </padding>
       </GridPane>
-      <JFXButton fx:id="prNextBtn" layoutX="645.0" layoutY="411.0" text="Next" textFill="WHITE" />
+      <JFXButton fx:id="prNextBtn" layoutX="645.0" layoutY="411.0" onAction="#askQuantity" text="Next" textFill="WHITE" />
       <JFXButton fx:id="moreBtn" layoutX="327.0" layoutY="411.0" onAction="#showMore" text="More" textFill="WHITE" />
       <JFXButton fx:id="homeBtn" layoutX="14.0" layoutY="411.0" onAction="#goHome" text="Home" textFill="WHITE" />
       <Pane fx:id="progressPane1" layoutX="97.0" layoutY="410.0" opacity="0.0" prefHeight="26.0" prefWidth="200.0">

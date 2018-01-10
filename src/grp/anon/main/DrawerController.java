@@ -35,8 +35,10 @@ public class DrawerController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             downloadStage = new Stage();
+            downloadStage.setResizable(false);
             //aboutStage = new Stage();
             settingsStage = new Stage();
+            settingsStage.setResizable(false);
             downloadScene = new Scene(FXMLLoader.load(getClass().getResource("../status/download_status.fxml")));
             //aboutScene =  new Scene(FXMLLoader.load(getClass().getResource("../about/about.fxml")));
             settingScene = new Scene(FXMLLoader.load(getClass().getResource("../setting/settings.fxml")));

@@ -1,10 +1,17 @@
 package grp.anon.preview;
 
+import grp.anon.main.Home;
+import grp.anon.status.DownloadStatusController;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -52,11 +59,20 @@ public class PreviewController implements Initializable {
 
     private ArrayList<String> links;
     private SetPreview previewService;
+    private Stage downloadStage;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         links = new ArrayList<String>();
         previewService = new SetPreview();
+        downloadStage = new Stage();
+        downloadStage.setResizable(false);
+        try {
+            downloadStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../status/download_status.fxml"))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        downloadStage.setTitle("ThunderGet - Download");
         counter = 0;
         try {
             BufferedReader reader = new BufferedReader(new FileReader(new File("C:\\Users\\"+System.getProperty("user.name")+"\\AppData\\Local\\ThunderGet\\Links.dat")));
@@ -80,13 +96,20 @@ public class PreviewController implements Initializable {
 
     @FXML
     void showMore(ActionEvent event) {
-        previewService.restart();
+        /*previewService.restart();*/
     }
     @FXML
     void goHome(ActionEvent event) {
-        Stage curStage = (Stage) root.getScene().getWindow();
-        curStage.hide();
+        Home.mainStage.toFront();
     }
+
+
+    @FXML
+    void askQuantity(ActionEvent event) {
+        downloadStage.show();
+        DownloadStatusController.setLinks(links);
+    }
+
     class SetPreview extends Service<Void>{
         @Override
         protected Task<Void> createTask() {

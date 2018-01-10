@@ -15,8 +15,8 @@ import java.io.*;
 public class Home extends Application {
 
     public static File download_dir ;
-    public static Database mainDB;
-    public static Table prefTable;
+    private static Database mainDB;
+    private static Table prefTable;
     public static Table tempTable;
 
     @Override
@@ -63,7 +63,7 @@ public class Home extends Application {
 
     }
 
-    public static StackPane mainRoot;
+    private static StackPane mainRoot;
     public static Stage mainStage;
 
     @Override
