@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXProgressBar?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
@@ -37,6 +38,13 @@
             </Pane>
             <JFXHamburger fx:id="home_ham" layoutX="656.0" layoutY="20.0" />
             <JFXDrawer fx:id="home_drawer" defaultDrawerSize="210.0" prefHeight="450.0" prefWidth="153.0" />
+            <Pane fx:id="progressPane" layoutX="149.0" layoutY="330.0" prefHeight="112.0" prefWidth="399.0" styleClass="progress_pane">
+               <children>
+                  <JFXProgressBar layoutX="100.0" layoutY="54.0" />
+                  <JFXProgressBar layoutX="100.0" layoutY="65.0" />
+                  <JFXProgressBar layoutX="100.0" layoutY="76.0" />
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
    </children>

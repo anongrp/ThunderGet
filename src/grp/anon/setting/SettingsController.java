@@ -83,20 +83,20 @@ public class SettingsController implements Initializable {
         chooser.setInitialDirectory(Home.download_dir);
         chooser.setTitle("Choose Download Folder");
         File downwload_Dir = chooser.showDialog(Home.getRoot().getScene().getWindow());
-        download_path.setText(downwload_Dir.getAbsolutePath());
-        Home.updateHomePath(downwload_Dir.getAbsolutePath());
-        System.out.println(downwload_Dir.getAbsolutePath());
+        if (downwload_Dir != null){
+            Home.updateHomePath(downwload_Dir.getAbsolutePath());
+            download_path.setText(Home.tempTable.getRow("id","HOMEPATH").get(1));
+        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /*root.setOpacity(0);
-        download_path.setText(Home.download_dir.getAbsolutePath());
-        FadeTransition transition = new FadeTransition(Duration.seconds(1),root);
-        transition.setFromValue(0);
-        transition.setToValue(1);
-        transition.play();*/
 
+        try {
+            download_path.setText(Home.tempTable.getRow("id","HOMEPATH").get(1));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         macindosRBtn.setOnAction(e->{
 

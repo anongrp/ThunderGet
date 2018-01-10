@@ -59,3 +59,9 @@
     -fx-border-color: black;
     -fx-border-radius: 10;
 }
+.home_progress{
+    -fx-accent: orange;
+}
+.progress_pane{
+    -fx-opacity: 0;
+}

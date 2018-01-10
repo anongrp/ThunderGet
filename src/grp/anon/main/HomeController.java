@@ -6,38 +6,35 @@ import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.transitions.hamburger.HamburgerBasicCloseTransition;
-import javafx.animation.FadeTransition;
-import javafx.event.ActionEvent;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.Alert;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
+
     @FXML
     private StackPane root_pane;
 
     @FXML
     private JFXTextField search_input;
-
 
     @FXML
     private JFXHamburger home_ham;
@@ -45,17 +42,22 @@ public class HomeController implements Initializable {
     @FXML
     private JFXDrawer home_drawer;
 
+    @FXML
+    private Pane progressPane;
 
-    private static JFXDrawer commonDrawer;
+    private GetLinkService linkService;
+    private Stage previewStage = new Stage();
 
     private String startLink = "https://www.google.co.in/search?q=";
     private String endLink = "&dcr=0&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjo3q-En8jYAhXBtY8KHZpfA44Q_AUICygC&biw=1536&bih=759&dpr=1.25";
     private String finalLink;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        linkService = new GetLinkService();
+
+        /* Coding For Main Drawer */
         try {
             home_drawer.setSidePane((VBox)FXMLLoader.load(getClass().getResource("drawer.fxml")));
-            commonDrawer = home_drawer;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -72,44 +74,26 @@ public class HomeController implements Initializable {
             }
         });
 
+
         search_input.addEventHandler(KeyEvent.KEY_PRESSED,e->{
             if (e.getCode().equals(KeyCode.ENTER)){
+                progressPane.setOpacity(1);
                 finalLink = startLink+search_input.getText()+endLink;
-                new Thread(() -> {
+                linkService.restart();
+                linkService.setOnSucceeded(action ->{
                     try {
-                        getGoogleImagesLinks(finalLink,new File("C:\\Users\\"+System.getProperty("user.name")+"\\AppData\\Local\\ThunderGet\\Links.dat"));
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
+                        progressPane.setOpacity(0);
+                        previewStage.setScene(new Scene((AnchorPane)FXMLLoader.load(getClass().getResource("../preview/preview.fxml"))));
+                        previewStage.setTitle("Preview");
+                        previewStage.show();
+                    } catch (IOException ex) {
+                        showError();
                     }
-                }).start();
-
-                try {
-                    Thread.sleep(1500);
-                } catch (InterruptedException e1) {
-                    e1.printStackTrace();
-                }
-
-                new Thread(() -> {
-                    Stage curStage = (Stage) root_pane.getScene().getWindow();
-                    FadeTransition transition = new FadeTransition(Duration.seconds(2),root_pane);
-                    transition.setFromValue(1);
-                    transition.setToValue(0);
-                    transition.setOnFinished((lambda) ->{
-                        try {
-                            curStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../preview/preview.fxml"))));
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }
-                    });
-                    transition.play();
-                }).start();
+                });
             }
         });
     }
 
-    public static JFXDrawer getDrawer(){
-        return commonDrawer;
-    }
 
     private void getGoogleImagesLinks(String url, File outPutFilePath) throws IOException {
         String rowLink;
@@ -157,5 +141,32 @@ public class HomeController implements Initializable {
 
     private static String getImageName(String data){
         return data.substring(data.lastIndexOf("/")+1,data.length());
+    }
+
+    private void showError(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setContentText("NetWork Error, Please Contact To ThunderGet Developer's ");
+        alert.setHeaderText("Some Problem Occure");
+        alert.show();
+    }
+
+    class GetLinkService extends Service<Void>{
+
+        @Override
+        protected Task<Void> createTask() {
+
+            return new Task<Void>() {
+                @Override
+                protected Void call() throws Exception {
+                    try {
+                        getGoogleImagesLinks(finalLink,new File("C:\\Users\\"+System.getProperty("user.name")+"\\AppData\\Local\\ThunderGet\\Links.dat"));
+                    } catch (IOException e) {
+                        showError();
+                    }
+                    return null;
+                }
+            };
+        }
     }
 }

@@ -6,7 +6,9 @@ import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -14,12 +16,35 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class DrawerController {
+public class DrawerController implements Initializable {
     @FXML
     private VBox root;
 
-    private StackPane mainRoot;
+    private Stage downloadStage;
+    private Stage aboutStage;
+    private Stage settingsStage;
+
+    private Scene downloadScene;
+    private Scene aboutScene;
+    private Scene settingScene;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            downloadStage = new Stage();
+            //aboutStage = new Stage();
+            settingsStage = new Stage();
+            downloadScene = new Scene(FXMLLoader.load(getClass().getResource("../status/download_status.fxml")));
+            //aboutScene =  new Scene(FXMLLoader.load(getClass().getResource("../about/about.fxml")));
+            settingScene = new Scene(FXMLLoader.load(getClass().getResource("../setting/settings.fxml")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     void goAbout(ActionEvent event) {
@@ -32,55 +57,34 @@ public class DrawerController {
 
     @FXML
     void goDownloads(ActionEvent event) throws IOException {
-        mainRoot = Home.getRoot();
-        Stage curStage = (Stage) mainRoot.getScene().getWindow();
-        FadeTransition transition = new FadeTransition(Duration.seconds(2),mainRoot);
-        transition.setFromValue(1);
-        transition.setToValue(0);
-        transition.setOnFinished(e ->{
-            try {
-                curStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../status/download_status.fxml"))));
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
+        downloadStage.setScene(downloadScene);
+        downloadStage.setTitle("Download");
+        downloadStage.show();
+        Home.mainStage.hide();
+        downloadStage.setOnCloseRequest(e->{
+            Home.mainStage.show();
         });
-        transition.play();
     }
 
     @FXML
     void goHome(ActionEvent event) {
-        JFXDrawer home_drawer = HomeController.getDrawer();
-        home_drawer.close();
+
     }
 
     @FXML
     void goSettings(ActionEvent event) {
-
-        mainRoot = Home.getRoot();
-        Stage curStage = (Stage) mainRoot.getScene().getWindow();
-        FadeTransition transition = new FadeTransition(Duration.seconds(2),mainRoot);
-        transition.setFromValue(1);
-        transition.setToValue(0);
-        transition.setOnFinished(e ->{
-            try {
-                curStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../setting/settings.fxml"))));
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
+        settingsStage.setScene(settingScene);
+        settingsStage.setTitle("Setting");
+        settingsStage.show();
+        Home.mainStage.hide();
+        settingsStage.setOnCloseRequest(e->{
+            Home.mainStage.show();
         });
-        transition.play();
     }
 
     @FXML
     void quit(ActionEvent event) {
-        mainRoot = Home.getRoot();
-        Stage curStage = (Stage) mainRoot.getScene().getWindow();
-        FadeTransition transition = new FadeTransition(Duration.seconds(1),mainRoot);
-        transition.setFromValue(1);
-        transition.setToValue(0.5);
-        transition.setOnFinished(e ->{
-            System.exit(0);
-        });
-        transition.play();
+        System.exit(0);
     }
+
 }

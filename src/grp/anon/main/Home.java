@@ -2,7 +2,6 @@ package grp.anon.main;
 
 import anon.database.*;
 import anon.database.connect.Connection;
-import com.jfoenix.controls.JFXAlert;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -72,10 +71,10 @@ public class Home extends Application {
         mainStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
         mainRoot = (StackPane) root;
-        primaryStage.setScene(new Scene(root));
-        primaryStage.setTitle("ThunderGet");
-        primaryStage.setResizable(false);
-        primaryStage.show();
+        mainStage.setScene(new Scene(root));
+        mainStage.setTitle("ThunderGet");
+        mainStage.setResizable(false);
+        mainStage.show();
     }
 
     public static StackPane getRoot(){
@@ -96,30 +95,4 @@ public class Home extends Application {
         });
         alert.show();
     }
-
-
-    /*public void getGoogleImagesLinks(String url,File outPutFilePath) throws IOException {
-        String rowLink;
-        FileWriter writer = new FileWriter(outPutFilePath);
-        FileWriter rowDataWriter = new FileWriter(new File("temp.dat"));
-        BufferedReader reader = new BufferedReader(new FileReader(new File("temp.dat")));
-        Document document = Jsoup.connect(url).get();
-        Elements divTags = document.getElementsByTag("div");
-        rowDataWriter.write(divTags.toString());
-        rowDataWriter.close();
-        JsonParser parser = new JsonParser();
-        JsonObject jsonObject;
-
-        while ((rowLink = reader.readLine()) != null){
-            if (rowLink.contains("ou") && rowLink.contains("http")){
-                if (rowLink.contains("jpg") || rowLink.contains("png")){
-                    jsonObject = parser.parse(rowLink).getAsJsonObject();
-                    writer.append(String.valueOf(jsonObject.get("ou"))).append("\n");
-                }
-            }
-        }
-
-        writer.close();
-        reader.close();
-    }*/
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.Image?>
@@ -90,7 +91,7 @@
                   <String fx:value="hoverEffect" />
                </styleClass>
                <children>
-                  <ImageView fx:id="pb4" fitHeight="145.0" fitWidth="181.0" layoutX="4.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" styleClass="preview_box">
+                  <ImageView fx:id="pb4" fitHeight="126.0" fitWidth="181.0" layoutX="4.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" styleClass="preview_box">
                      <image>
                         <Image url="@../../../../../../download%20Images/cat-1285634_960_720.png" />
                      </image></ImageView>
@@ -118,7 +119,7 @@
                   <String fx:value="hoverEffect" />
                </styleClass>
                <children>
-                  <ImageView fx:id="pb6" fitHeight="145.0" fitWidth="200.0" layoutX="1.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" styleClass="preview_box">
+                  <ImageView fx:id="pb6" fitHeight="145.0" fitWidth="200.0" layoutX="1.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" styleClass="preview_box">
                      <image>
                         <Image url="@../../../../../../download%20Images/cat-1285634_960_720.png" />
                      </image></ImageView>
@@ -130,7 +131,17 @@
          </padding>
       </GridPane>
       <JFXButton fx:id="prNextBtn" layoutX="645.0" layoutY="411.0" text="Next" textFill="WHITE" />
-      <JFXButton fx:id="moreBtn" layoutX="327.0" layoutY="411.0" text="More" textFill="WHITE" />
-      <JFXButton fx:id="homeBtn" layoutX="14.0" layoutY="411.0" text="Home" textFill="WHITE" />
+      <JFXButton fx:id="moreBtn" layoutX="327.0" layoutY="411.0" onAction="#showMore" text="More" textFill="WHITE" />
+      <JFXButton fx:id="homeBtn" layoutX="14.0" layoutY="411.0" onAction="#goHome" text="Home" textFill="WHITE" />
+      <Pane fx:id="progressPane1" layoutX="97.0" layoutY="410.0" opacity="0.0" prefHeight="26.0" prefWidth="200.0">
+         <children>
+            <JFXProgressBar layoutY="12.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="progressPane2" layoutX="419.0" layoutY="410.0" opacity="0.0" prefHeight="26.0" prefWidth="200.0">
+         <children>
+            <JFXProgressBar layoutY="12.0" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
